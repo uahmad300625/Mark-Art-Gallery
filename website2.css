@@ -1,0 +1,206 @@
+body{
+    margin: 0px;
+    padding:3px;
+    text-align: center;
+    background-color: rgb(27, 27, 27);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);  /* creates six columns for the images to layout in */
+    grid-auto-rows: 100px 200px;            /*first row of images will be 100px width will the next row will be 300px */
+    grid-gap: 7px;
+    grid-auto-flow: dense;                  /*if there any any holes b/w the photos it will try to fill it in */
+}
+
+.gallery-item{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gallery-item .image{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.gallery-item .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%; /*makes the center of the photo the focus, so when resizesing it it focus on the center of the picture */
+    cursor: zoom-in;
+    transition: .5s ease-in-out;
+}
+
+.gallery-item:hover .image img{
+    transform: scale(1.15);
+}
+
+/*.gallery-item .text{
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   /*making the text truely center to the photo 
+    color:white;
+    font-size: 25px;
+    pointer-events: none;   /* text won't interfere with the click of the image 
+    z-index: 4;             /* makes sure text is at the front of the picture 
+    transition: .5s ease-in-out;
+    -webkit-backdrop-filter: blur(2px) saturate(1.1);
+        backdrop-filter: blur(2px)  saturate(1.1);
+}
+
+.gallery-item:hover .text{
+    opacity: 1;
+    animation: move-down .3s linear;
+    padding: 1em;
+    width: 100%;
+}*/
+
+.w-1{
+    grid-column: span 1;
+}
+.w-2{
+    grid-column: span 2;
+}
+.w-3{
+    grid-column: span 3;
+}
+.w-4{
+    grid-column: span 4;
+}
+.w-5{
+    grid-column: span 5;
+}
+.w-6{
+    grid-column: span 6;
+}
+
+.h-1{
+    grid-row: span 1;
+}
+.h-2{
+    grid-row: span 2;
+}
+.h-3{
+    grid-row: span 3;
+}
+.h-4{
+    grid-row: span 4;
+}
+.h-5{
+    grid-row: span 5;
+}
+.h-6{
+    grid-row: span 6;
+}
+
+
+.container .lightbox{
+    position: fixed;
+    top:0; left:0;
+    background: rgba(0,0,0,.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+
+.container .lightbox span{
+    position: absolute;
+    top: 0; right: 10px;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    z-index:100;
+}
+
+.container .lightbox img{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid white;
+    border-radius: 5px;
+    width: 36%;
+    object-fit: cover;
+}
+
+.fa-solidfa-mountain-sun{
+    width: 10px;
+    margin-top: -10px;
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+ul{
+    display: flex;
+    border-bottom: .5px solid rgb(255, 255, 255);
+    padding-bottom: 5px;
+}
+
+li{
+    list-style-type: none;
+    padding: 30px;
+    color: white;
+    font-size: larger;
+    display: flex;
+    border-bottom: .5px solid rgb(255, 255, 255);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 551px){
+    .container .lightbox img{
+        width: 95%;
+    }
+}
+
+
+
+
+
+@media screen and (max-width:500px){
+    .container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .w-1,.w-2,.w-3,.w-4,.w-5,.w-6{
+        grid-column: span 1;
+    }
+}
+
+
+
+@keyframes move-down{
+
+    0%{
+        top:10%
+    }
+    50%{
+        top:35%
+    }
+    100%{
+        top:50%
+    }
+}
+
+h1{
+    padding: 10px;
+    color: white;
+}

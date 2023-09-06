@@ -1,0 +1,142 @@
+/* creating the text display*/
+
+/* used to create a custom color varible for the gradient*/
+
+@keyframes background-pan{
+    from{
+        background-position: 0% center;
+    }
+
+    to{
+        background-position: 1200% center;
+    }
+}
+
+
+
+:root{
+    --green: rgb(42,252,152);
+    --blue: rgb(41,121,255);
+}
+
+
+
+
+body{
+    height:100vh;
+    background-color: black;
+    margin: 0rem;
+    overflow: hidden;
+    place-items: center;
+    display:grid
+    
+    
+    
+}
+
+.line{
+    display: flex;
+    justify-content:space-between;
+}
+
+.word{
+    color: white;
+    font-size: clamp(2rem, 4.5vw, 10rem);
+    font-family: "Rubik", sans-serif;
+    margin: 0rem;
+    text-transform: uppercase;
+    transition: opacity 250ms ease;
+}
+
+/* if text (main div element) conatins a .fancy that is hovered, reduce the opacity of the words that do not have .fancy and are not being hoverd */
+#text:has(.fancy:hover) .word:not(.fancy:hover){
+    opacity: .09;
+}
+
+
+/* creating the spliiting text effect */
+
+.fancy > .letter{
+    display: inline-block;
+    transition: transform 350ms ease; /* controls how fast the letters come back to orginal position */
+}
+
+
+.fancy:hover > .letter:nth-child(1) {
+    transform: translate(-80%, 60%) rotate(8deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(2) {
+    transform: translate(-40%, 20%) rotate(4deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(3) {
+    transform: translate(-10%, 60%) rotate(-6deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(4) {
+    transform: translate(0%, 8%) rotate(-8deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(5) {
+    transform: translate(0%, -20%) rotate(5deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(6) {
+    transform: translate(0%, 20%) rotate(-3deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(7) {
+    transform: translate(0%, -40%) rotate(-5deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(8) {
+    transform: translate(0%, 15%) rotate(10deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(9) {
+    transform: translate(0%, -50%) rotate(8deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(10) {
+    transform: translate(0%, 15%) rotate(-6deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(11) {
+    transform: translate(50%, -10%) rotate(-3deg);
+  }
+  
+  .fancy:hover > .letter:nth-child(12) {
+    transform: translate(120%, -30%) rotate(-10deg);
+  }
+
+  .fancy:hover > .letter:nth-child(13) {
+    transform: translate(120%, -30%) rotate(20deg);
+  }
+
+
+/* gradient effect */
+
+.fancy:hover > .letter{
+    
+    font-weight:400;
+    transition-duration: 1000ms; /* controls how fast the letter seperate */
+    background:linear-gradient(
+        to right,
+        white,
+        blue,
+        red
+
+    );
+    
+    background-size: 1000%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    animation: background-pan 75s linear infinite;
+}
+
+
+a{
+  text-decoration: none;
+}
